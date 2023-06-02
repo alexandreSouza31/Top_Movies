@@ -1,13 +1,15 @@
 import { Link } from "react-router-dom";
 import { BsSearch } from "react-icons/bs";
 
-import Logo from "../assets/top_movies.png"
+import Logo from "../assets/logo.png"
+
+import styles from "../components/Navbar.module.css"
 
 const Navbar = () => {
     return (
         <nav>
             <h2>
-                <Link to="/"></Link>
+                <Link to="/"><img src={Logo} alt="logo Top Movies" /></Link>
             </h2>
             <form>
                 <input type="text" placeholder="pesquise um filme" />
