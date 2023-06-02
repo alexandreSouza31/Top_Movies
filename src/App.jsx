@@ -1,10 +1,15 @@
+import { Outlet } from 'react-router-dom'
+import Navbar from './components/Navbar'
+
 import './App.css'
 
 const App=()=> {
 
   return (
     <div className='container_app'>
-      <h1>Top Movies</h1>
+      <Navbar/>
+      {/* pra mostrar os elementos do componente uso o outlet: */}
+      <Outlet/>
     </div>
   )
 }
