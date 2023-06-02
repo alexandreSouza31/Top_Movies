@@ -1,0 +1,14 @@
+.nav_container{
+    width: 100vw;
+    padding: .5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 10px solid #1a1a1a;
+}
+
+h2 img{
+    width: 100px;
+    position: relative;
+    top: 0;
+}

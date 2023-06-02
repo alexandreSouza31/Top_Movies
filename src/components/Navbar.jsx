@@ -7,7 +7,7 @@ import styles from "../components/Navbar.module.css"
 
 const Navbar = () => {
     return (
-        <nav>
+        <nav className={styles.nav_container}>
             <h2>
                 <Link to="/"><img src={Logo} alt="logo Top Movies" /></Link>
             </h2>
