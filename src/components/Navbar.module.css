@@ -1,14 +1,18 @@
 .nav_container{
-    width: 100vw;
-    padding: .5rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 10px solid #1a1a1a;
+   width: 100%;
+    padding: 1rem .5rem;
+    background-color: #777eff;
 }
 
 h2 img{
-    width: 100px;
+    max-width: 100px;
     position: relative;
     top: 0;
+}
+
+h2 img:hover{
+    opacity: .7;
 }
