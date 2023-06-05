@@ -8,7 +8,6 @@ const key = import.meta.env.VITE_API_KEY;
 
 const Home = () => {
     const [popMovies, setPopMovies] = useState([])
-    //const [topMovies, setTopMovies] = useState([])
 
     const getMovies = async (url,state) => {//o state é passado como parâmetro pra conseguir usar mais de um
         const res = await fetch(url)
