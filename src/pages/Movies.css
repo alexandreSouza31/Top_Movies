@@ -38,6 +38,11 @@ h4 {
     font-style: italic;
 }
 
+.result{
+    color: #535bf2;
+    font-size: 1.3rem;
+}
+
 h3 {
     width: 40vw;
 }
