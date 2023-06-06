@@ -17,7 +17,7 @@ const Search = () => {
     const [popMovies, setPopMovies] = useState([]);
     const [removeLoading, setRemoveLoading] = useState(false);
 
-    const createSearchUrl = () => `${searchUrl}?${key}&query=${query}`;
+    const createSearchUrl = () => `${searchUrl}?${key}&query=${query}&language=pt-BR`;
 
     useEffect(() => {
 

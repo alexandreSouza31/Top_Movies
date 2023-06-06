@@ -12,7 +12,7 @@ const Home = () => {
     const [popMovies, setPopMovies] = useState([]);
     const [removeLoading, setRemoveLoading] = useState(false);
 
-    const createUrl = (category) => `${url}${category}${key}`;
+    const createUrl = (category) => `${url}${category}${key}&language=pt-BR`;
 
     useEffect(() => {/*tenho possibilidade de executar uma função em alguns 
     estágios da minha aplicação(baseado no array de dependências no final da função '[]')*/
