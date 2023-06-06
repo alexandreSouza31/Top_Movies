@@ -3,16 +3,20 @@
     justify-content: space-between;
     align-items: center;
    width: 100%;
-    padding: 1rem .5rem;
-    background-color: #777eff;
+    padding: .5rem .5rem;
+    background-color: #535bf2;
 }
 
 h2 img{
     max-width: 100px;
     position: relative;
-    top: 0;
+    top: 0; 
 }
 
-h2 img:hover{
-    opacity: .7;
+.nav_container h1{display: none;}
+
+@media screen and (min-width:650px) {
+    .nav_container h1{
+        display: block;
+    }
 }

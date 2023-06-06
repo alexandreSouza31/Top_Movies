@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { BsSearch } from "react-icons/bs";
 
-import Logo from "../assets/logo.png"
+import Logo from "../assets/logo.gif"
 
 import styles from "../components/Navbar.module.css"
 
@@ -28,6 +28,7 @@ const Navbar = () => {
             <h2>
                 <Link to="/"><img src={Logo} alt="logo Top Movies" /></Link>
             </h2>
+            <h1>Top Movies</h1>
             <form onSubmit={handleSubmit}>
                 <input type="text"
                     placeholder="pesquise um filme"
