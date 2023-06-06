@@ -33,28 +33,35 @@ const Movie = () => {
         <div className="movie-page" >
             {movie && (
                 <>
-                    <MovieCard movie={movie} showLink={false} />
-                    <p className="tagline">{movie.tagline}</p>
+                    <h2>{movie.title}</h2>
+                            <p className="tagline">{movie.tagline}</p>
+                    <div className="movie_container">
+                        <MovieCard className="movie_card_container" movie={movie} showLink={false} title={false} />
 
-                    <div className="info">
-                        <h3><BsWallet2 />Orçamento:</h3>
-                    </div>
-                    <p>{formatCurrency(movie.budget,"en-US","USD")}</p>
+                        <div className="info_container">
 
-                    <div className="info">
-                        <h3><BsGraphUp />Receita:</h3>
-                    </div>
-                    <p>{formatCurrency(movie.revenue,"en-US","USD")}</p>
+                            <div className="info">
+                                <h3><BsWallet2 />Orçamento:</h3>
+                            </div>
+                            <p>{formatCurrency(movie.budget, "en-US", "USD")}</p>
 
-                    <div className="info">
-                        <h3><BsHourglassSplit />Duração:</h3>
-                    </div>
-                    <p>{movie.runtime} minutos</p>
+                            <div className="info">
+                                <h3><BsGraphUp />Receita:</h3>
+                            </div>
+                            <p>{formatCurrency(movie.revenue, "en-US", "USD")}</p>
 
-                    <div className="info description">
-                        <h3><BsFillFileEarmarkTextFill />Descrição:</h3>
+                            <div className="info">
+                                <h3><BsHourglassSplit />Duração:</h3>
+                            </div>
+                            <p>{movie.runtime} minutos</p>
+                        </div>
+                        
+                        <div className="info_description">
+                            <h3><BsFillFileEarmarkTextFill />Descrição:</h3>
+                            <p>{movie.overview}</p>
+                        </div>
                     </div>
-                    <p>{movie.overview}</p>
+
                 </>
             )}
         </div>
