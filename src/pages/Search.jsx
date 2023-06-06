@@ -8,19 +8,25 @@ const searchUrl = import.meta.env.VITE_API_SEARCH;
 const key = import.meta.env.VITE_API_KEY;
 
 import "./Movies.css";
+import Loading from "../components/Loading";
 
 const Search = () => {
     const [searchParams] = useSearchParams();
     const query = searchParams.get("q");//vou querer o param "q" da url, que é o filme que pesquisei
 
     const [popMovies, setPopMovies] = useState([]);
+    const [removeLoading, setRemoveLoading] = useState(false);
 
     const createSearchUrl = () => `${searchUrl}?${key}&query=${query}`;
 
     useEffect(() => {
 
         const popMoviesUrl = createSearchUrl()//aqui eu monto a url de acordo com a api
-        getMovies(popMoviesUrl,setPopMovies,true)
+        
+        setTimeout(() => {
+            getMovies(popMoviesUrl, setPopMovies, true)
+            setRemoveLoading(true)
+        }, 3000);
 
     }, [query])/*preciso do query no array de dependências pra ele executar a 
     função novamente toda vez que eu pesquisar um filme novo.*/
@@ -34,7 +40,8 @@ const Search = () => {
             </h4>
             {/* esse query é o parâmetro que vem da url*/}
             <div className="movies-card">
-                {popMovies.length === 0 && <p>Carregando...</p>}
+            {popMovies.length === 0 && !removeLoading &&<Loading /> && <p>sua busca não gerou resultados!</p>}
+                {popMovies.length === 0 && !removeLoading && <Loading />}
                 
                 {mapPop} 
 

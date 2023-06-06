@@ -13,6 +13,7 @@ import MovieCard from "../components/MovieCard";
 
 import "./Movie.css";
 import formatCurrency from "../hooks/formatCurrency";
+import Loading from "../components/Loading";
 
 const url = import.meta.env.VITE_API_URL;
 const key = import.meta.env.VITE_API_KEY;
@@ -21,20 +22,27 @@ const Movie = () => {
 
     const { id } = useParams()//vai pegar o id que está na url desestruturando e usando hook.
     const [movie, setMovie] = useState(null);
+    const [removeLoading, setRemoveLoading] = useState(false);
 
     //const createUrl = `${url}${id}?${key}`;
     const createUrlPt = `${url}${id}?${key}&language=pt-BR `;
 
     useEffect(() => {
-        getMovies(createUrlPt, setMovie, false)
+
+        setTimeout(() => {
+            getMovies(createUrlPt, setMovie, false)
+            setRemoveLoading(true)
+        }, 3000);
     }, [])
 
     return (
         <div className="movie-page" >
+            {!movie && !removeLoading && <Loading />}
+
             {movie && (
                 <>
                     <h2>{movie.title}</h2>
-                            <p className="tagline">{movie.tagline}</p>
+                    <p className="tagline">{movie.tagline}</p>
                     <div className="movie_container">
                         <MovieCard className="movie_card_container" movie={movie} showLink={false} title={false} />
 
@@ -55,7 +63,7 @@ const Movie = () => {
                             </div>
                             <p>{movie.runtime} minutos</p>
                         </div>
-                        
+
                         <div className="info_description">
                             <h3><BsFillFileEarmarkTextFill />Descrição:</h3>
                             <p>{movie.overview}</p>

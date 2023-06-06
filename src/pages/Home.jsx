@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import MovieCard from "../components/MovieCard";
 import getMovies from "../hooks/getMovies";
+import Loading from "../components/Loading";
 
 import "./Movies.css"
 
@@ -9,6 +10,7 @@ const key = import.meta.env.VITE_API_KEY;
 
 const Home = () => {
     const [popMovies, setPopMovies] = useState([]);
+    const [removeLoading, setRemoveLoading] = useState(false);
 
     const createUrl = (category) => `${url}${category}${key}`;
 
@@ -16,7 +18,11 @@ const Home = () => {
     estágios da minha aplicação(baseado no array de dependências no final da função '[]')*/
 
         const popMoviesUrl = createUrl('popular?')//aqui eu monto a url de acordo com a api
-        getMovies(popMoviesUrl, setPopMovies,true)
+        
+        setTimeout(() => {
+            getMovies(popMoviesUrl, setPopMovies, true)
+            setRemoveLoading(true)
+        }, 3000);
 
     }, [])//array vazio: será executado somente quando a pág for carregada
 
@@ -26,7 +32,7 @@ const Home = () => {
         <div className="home-container">
             <h4>Mais Polulares</h4>
             <div className="movies-card">
-                {popMovies.length === 0 && <p>Carregando...</p>}
+                {popMovies.length === 0 && !removeLoading && <Loading />}
                 {mapPop}
 
             </div>
