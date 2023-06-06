@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import getMovies from "../hooks/getMovies"
-
+ 
 import {
     BsGraphUp,
     BsWallet2,
