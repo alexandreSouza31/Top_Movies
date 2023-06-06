@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import MovieCard from "../components/MovieCard";
+import getMovies from "../hooks/getMovies";
 
 import "./Movies.css"
 
@@ -7,17 +8,10 @@ const url = import.meta.env.VITE_API_URL;
 const key = import.meta.env.VITE_API_KEY;
 
 const Home = () => {
-    const [popMovies, setPopMovies] = useState([])
-
-    const getMovies = async (url,state) => {//o state é passado como parâmetro pra conseguir usar mais de um
-        const res = await fetch(url)
-        const data = await res.json()
-        
-        state(data.results)
-    }
-
-    const createUrl = (category) => `${ url}${category}${key}`
-
+    const [popMovies, setPopMovies] = useState([]);
+    
+    const createUrl = (category) => `${url}${category}${key}`;
+    
     useEffect(() => {/*tenho possibilidade de executar uma função em alguns 
     estágios da minha aplicação(baseado no array de dependências no final da função '[]')*/
 

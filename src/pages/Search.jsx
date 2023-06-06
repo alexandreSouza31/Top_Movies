@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
+import getMovies from "../hooks/getMovies";
 
 import MovieCard from "../components/MovieCard";
 
@@ -14,19 +15,14 @@ const Search = () => {
 
     const [popMovies, setPopMovies] = useState([]);
 
-    const getSearchMovies = async (url,state) => {
-        const res = await fetch(url);
-        const data = await res.json();
-
-        state(data.results);
-    }
+    getMovies;
 
     const createSearchUrl = () => `${searchUrl}?${key}&query=${query}`;
 
     useEffect(() => {
 
         const popMoviesUrl = createSearchUrl()//aqui eu monto a url de acordo com a api
-        getSearchMovies(popMoviesUrl,setPopMovies)
+        getMovies(popMoviesUrl,setPopMovies)
 
     }, [query])/*preciso do query no array de dependências pra ele executar a 
     função novamente toda vez que eu pesquisar um filme novo.*/
@@ -41,8 +37,7 @@ const Search = () => {
             {/* esse query é o parâmetro que vem da url*/}
             <div className="movies-card">
                 {popMovies.length === 0 && <p>Carregando...</p>}
-                {/* {popMovies.length > 0 &&
-                    popMovies.map((pop) => <MovieCard key={pop.id} movie={pop} />)}*/}
+                
                 {mapPop} 
 
             </div>
