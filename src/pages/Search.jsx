@@ -15,14 +15,12 @@ const Search = () => {
 
     const [popMovies, setPopMovies] = useState([]);
 
-    getMovies;
-
     const createSearchUrl = () => `${searchUrl}?${key}&query=${query}`;
 
     useEffect(() => {
 
         const popMoviesUrl = createSearchUrl()//aqui eu monto a url de acordo com a api
-        getMovies(popMoviesUrl,setPopMovies)
+        getMovies(popMoviesUrl,setPopMovies,true)
 
     }, [query])/*preciso do query no array de dependências pra ele executar a 
     função novamente toda vez que eu pesquisar um filme novo.*/
