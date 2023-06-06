@@ -1,0 +1,24 @@
+.footer{
+    font-size: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    width: 99vw;
+    position: relative;
+    padding: 1rem;
+    bottom: 0px;
+    color: whitesmoke;
+    border-top: 1px solid #535bf2;
+    margin-top: 2rem;
+}
+
+.footer ul{
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+footer p span{color: #535bf2;}

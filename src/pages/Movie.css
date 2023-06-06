@@ -5,6 +5,7 @@
     align-items: center;
     justify-content: center;
     margin-top: 2rem;
+    min-height: 90vh;
 }
 
 .movie-page h2 {
