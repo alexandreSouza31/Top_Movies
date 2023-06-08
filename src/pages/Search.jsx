@@ -40,7 +40,7 @@ const Search = () => {
             </h4>
             {/* esse query é o parâmetro que vem da url*/}
             <div className="movies-card">
-            {popMovies.length === 0 && !removeLoading &&<Loading /> && <p>sua busca não gerou resultados!</p>}
+            {/* {popMovies.length === 0 && !removeLoading &&<Loading /> && <p>sua busca não gerou resultados!</p>} */}
                 {popMovies.length === 0 && !removeLoading && <Loading />}
                 
                 {mapPop} 
